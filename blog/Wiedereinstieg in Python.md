@@ -3,8 +3,9 @@
 >Sehr Wichtig!
 
 ![image](/images/meme.png)
->Repeat = for i in range()
-````
+>Repeat = for i in range(n)
+
+```py
 forward(n) fd(n)​
 
 backward(n) back(n) bk(n)​
@@ -18,5 +19,5 @@ goto(x, y)​
 home()​
 
 setheading(to_angle) seth(to_angle)​
-````
+```
 

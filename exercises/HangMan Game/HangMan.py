@@ -13,7 +13,7 @@ def show():
             print(buchstabe, end=' ')
         else:
             print('_', end=' ')
-print('')
+        print('')
 
 def is_valid(inp):
     return True
@@ -34,7 +34,7 @@ def gewonnen():
     return False
 
 def game_over():
-    pass
+     falsch_geraten = [3]
 
 
 def play():
@@ -42,10 +42,11 @@ def play():
         BUCHSTABE = eingabe() 
         auswerten(BUCHSTABE)
         show()
+        print(falsch_geraten)
     if gewonnen():
-        print('')
+        print('Du hast das Wort erraten!')
     else:
-        print('')
+        print('Du hast verloren!')
 
 
 play()

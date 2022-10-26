@@ -45,7 +45,7 @@ def gewonnen():
 
 
 def game_over():
-     
+     return False
 
 def play():
     while not game_over():

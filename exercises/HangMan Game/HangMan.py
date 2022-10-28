@@ -4,7 +4,7 @@ from ctypes.wintypes import SIZE
 from operator import ge
 import zufallsworte as zufall
 
-wort = zufall.zufallswoerter(1)[0]  # gibt ein Zufallswort zurück
+wort = zufall.zufallswoerter(1)[0].lower()  # gibt ein Zufallswort zurück
 
 
 gesucht = wort
@@ -43,7 +43,11 @@ def auswerten(valid_inp):
 
 
 def gewonnen():
-        return False
+    for buchstabe in gesucht:
+        if buchstabe not in gefunden:
+            return False
+    return True
+        
 
 
 
@@ -55,10 +59,10 @@ def game_over():
             size = 1
             for x in falsch_geraten:
                 size+=1
-            print(size)
+            print(size, len(falsch_geraten))
             Versuche = 3
             if size == Versuche:
-                print('FETT ALARM')
+                print('ALARM GAME OVER')
                 return True
             else:
         

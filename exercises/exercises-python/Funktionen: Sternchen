@@ -1,0 +1,34 @@
+eingabe= input('Breite des Rechtecks')
+eingabe2 = input('Höhe des Rechtecks')
+Breite = int(eingabe)
+Höhe = int(eingabe2) 
+
+
+def Marcus():
+    for i in range(Breite):
+        print ('*', end='')
+    print('')
+    for i in range(Höhe -2):
+        print ('*',end='')
+        for i in range(Breite -2):
+            print(' ',end='')
+        print('*')
+    for i in range(Breite):
+        print ('*', end='')
+        
+Marcus()
+
+# Überarbeitete Version:
+
+def Marc():
+        print('*' * Breite)
+        for i in range(Höhe):
+            print('*' + ' ' * (Breite -2) + '*')
+        print('*' * Breite)
+
+
+Marc()
+
+
+
+

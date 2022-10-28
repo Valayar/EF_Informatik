@@ -15,3 +15,5 @@ def count_down():
 
 # Hauptprogramm ruft Funktion count_down auf.
 count_down()
+
+

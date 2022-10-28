@@ -1,5 +1,7 @@
 # Variablen
 
+from ctypes.wintypes import SIZE
+from operator import ge
 import zufallsworte as zufall
 
 wort = zufall.zufallswoerter(1)[0]  # gibt ein Zufallswort zurück
@@ -41,18 +43,35 @@ def auswerten(valid_inp):
 
 
 def gewonnen():
-    return False
+        return False
+
+
+
+
+
 
 
 def game_over():
-     return False
+            size = 1
+            for x in falsch_geraten:
+                size+=1
+            print(size)
+            Versuche = 3
+            if size == Versuche:
+                print('FETT ALARM')
+                return True
+            else:
+        
+                return False
 
 def play():
     while not game_over():
         BUCHSTABE = eingabe() 
         auswerten(BUCHSTABE)
         show()
-      
+        print(gefunden)
+        print(gesucht)
+       
     if gewonnen():
         print('Du hast das Wort erraten!')
     else:
@@ -60,7 +79,7 @@ def play():
 
 
 print(wort)
-print(falsch_geraten)
+
 play()
 
 

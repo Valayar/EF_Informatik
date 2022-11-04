@@ -11,6 +11,12 @@ board = [
     [2, 4, 4, 4, 4]
 ]
 
+for i in range(len(board[0])):
+    print( '', i, end='' )
+            
+print(' ')     
+
+
 for zeile in board:
     for zelle in zeile:
         print(Fore.GREEN + ' -', end='')

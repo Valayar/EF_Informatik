@@ -1,7 +1,8 @@
 eingabe= input('Breite des Rechtecks')
 eingabe2 = input('Höhe des Rechtecks')
-Breite = int(eingabe)
-Höhe = int(eingabe2) 
+Breite = abs(int(eingabe))                              # die Funktion abs gibt die Wurzel vom quadrierten Wert zurück 
+Höhe = int((int(eingabe2)**2)**0.5)                     
+
 
 
 def Marcus():

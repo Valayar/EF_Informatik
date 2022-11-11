@@ -2,7 +2,7 @@
 
 >Sehr Wichtig!
 
-![image](/images/meme.png)
+![image](images/meme.png)
 >Repeat = for i in range(n)
 
 ```py

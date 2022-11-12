@@ -10,7 +10,7 @@ Zahl den Wert des Blockes (Feldes) definiert.**
 Je nach Wert des jeweiligen Feldes können wir Farbe duch eine vordefinierung
 (andere Funktion) definieren.
 
-![image](images/Datenstsrucktur.jpg)
+![image](images/Datenstrucktur.jpg)
 
 
 

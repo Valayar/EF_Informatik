@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkef_website_template=self.webpackChunkef_website_template||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"**Datenstrucktur Numrip**","permalink":"/EF_Informatik/Datenstruktur Numtrip"},{"title":"Wiedereinstieg in Python","permalink":"/EF_Informatik/Wiedereinstieg in Python"}]}')}}]);

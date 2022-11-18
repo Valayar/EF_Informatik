@@ -64,7 +64,7 @@ const config = {
         title: 'EF Blog',
         logo: {
           alt: 'Page Logo',
-          src: 'img/logo.svg',
+          src: '/images/Logo_Website_Transparent_Black.png',
         },
         items: [
           {to: '/', label: 'Blog', position: 'left'},
@@ -120,7 +120,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Made with ❤️ at GBSL`,
+        copyright: `Made by Valentin Kündig`,
       },
       prism: {
         theme: lightCodeTheme,

@@ -14,7 +14,7 @@ const config = {
   baseUrl: `/${REPO_NAME}/`,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: '/images/Logo_Website_Transparent_Black.png',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -60,11 +60,16 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
+      },
       navbar: {
         title: 'EF Blog',
         logo: {
           alt: 'Page Logo',
-          src: '/images/Logo_Website_Transparent_Black.png',
+          src: 'img/Logo_Website_Transparent_Black.png',
         },
         items: [
           {to: '/', label: 'Blog', position: 'left'},

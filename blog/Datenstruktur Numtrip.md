@@ -1,5 +1,5 @@
 
-# **Datenstrucktur Numrip**
+# Datenstruktur Numtrip
 
 
 **Das Spielfeld besteht aus einer Liste, in welcher Weitere Listen die

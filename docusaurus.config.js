@@ -14,7 +14,7 @@ const config = {
   baseUrl: `/${REPO_NAME}/`,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: '/images/Logo_Website_Transparent_White.ico',
+  favicon: '/images/Logo_Website_Transparent_White_400x400.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -69,7 +69,7 @@ const config = {
         title: 'EF Blog',
         logo: {
           alt: 'Page Logo',
-          src: 'img/Logo_Website_Transparent_White.png',
+          src: 'img/Logo_Website_Transparent_White_400x400.png',
         },
         items: [
           {to: '/', label: 'Blog', position: 'left'},

@@ -14,7 +14,7 @@ const config = {
   baseUrl: `/${REPO_NAME}/`,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: '/images/Logo_Website_Transparent_White_400x400.ico',
+  favicon: '/img/Logo_Website_Transparent_White_400x400.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

@@ -1,4 +1,4 @@
-# **Steckbrief Valentin**
+# Steckbrief Valentin
 
 * Hobbies
     * Videospiele
@@ -10,6 +10,8 @@
     * Dark Souls III
     * Leauge of Legends 
     * Ghostrunner 
+    * Sekiro
+    * Cyberpunk 2077
 
 * Lieblingsfilm 
     * I want to eat your pancreas

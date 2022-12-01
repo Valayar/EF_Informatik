@@ -40,31 +40,15 @@ def Feld_abrufen():
 eingabe = input('Geben sie das gewünschte feld ein (Format: A1)')
 
 print (eingabe)
-
 eingabe = list(eingabe)
-
 print (eingabe)
 
-
-def BuchstabezuZahl(x, y, z):
-    if eingabe[0] == x or z:
-        eingabe[0]=y
-
 '''
-BuchstabezuZahl('A',0,'a')
-BuchstabezuZahl('B',1,'b')
-BuchstabezuZahl('C',2,'c')
-BuchstabezuZahl('D',3,'d')
-
-
-
 BUCHSTABENLISTE = ['A','B','C','D','E']
 
 for BUCHSTABENLISTE in eingabe:
     eingabe[0] = 1
 '''
-
-
 
 if eingabe[0] == 'A' :
     eingabe[0] = int(0)
@@ -78,8 +62,6 @@ elif eingabe[0] == 'E' :
     eingabe[0] = int(4)
 else:
     print ('Fehlerhafte Eingae!')
-
-
 
 eingabe[1] = int(eingabe[1])
 eingabe[1] = eingabe[1] - 1

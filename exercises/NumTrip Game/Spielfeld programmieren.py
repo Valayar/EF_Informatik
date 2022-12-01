@@ -43,25 +43,7 @@ print (eingabe)
 eingabe = list(eingabe)
 print (eingabe)
 
-'''
-BUCHSTABENLISTE = ['A','B','C','D','E']
-
-for BUCHSTABENLISTE in eingabe:
-    eingabe[0] = 1
-'''
-
-if eingabe[0] == 'A' :
-    eingabe[0] = int(0)
-elif eingabe[0] == 'B' :
-    eingabe[0] = int(1)
-elif eingabe[0] == 'C' :
-    eingabe[0] = int(2)
-elif eingabe[0] == 'D' :
-    eingabe[0] = int(3)
-elif eingabe[0] == 'E' :
-    eingabe[0] = int(4)
-else:
-    print ('Fehlerhafte Eingae!')
+eingabe[0] = 'ABCDE'.index(eingabe[0])
 
 eingabe[1] = int(eingabe[1])
 eingabe[1] = eingabe[1] - 1
@@ -72,20 +54,7 @@ board[eingabe[0]][eingabe[1]]= ' '
 
 Feld_abrufen()
 
-'''
-Feld_abrufen()
 
-board[0][1] = ' '
-
-Feld_abrufen()
-
-board.insert ([4], [1])
-Feld_abrufen()
-
-board[1] [1] = 0
-Feld_abrufen()
-
-'''
 
 
 

@@ -12,6 +12,10 @@ Je nach Wert des jeweiligen Feldes können wir Farbe duch eine vordefinierung
 
 ![image](images/Datenstrucktur.jpg)
 
+---
+
+
+
 
 
 

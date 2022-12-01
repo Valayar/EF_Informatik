@@ -1,9 +1,9 @@
 # Wiedereinstieg in Python
 
->Sehr Wichtig!
+ * Sehr Wichtig!
 
 ![image](images/meme.png)
->Repeat = for i in range(n)
+ * Repeat = for i in range(n)
 
 ```py
 forward(n) fd(n)​
@@ -21,3 +21,4 @@ home()​
 setheading(to_angle) seth(to_angle)​
 ```
 
+---

@@ -36,25 +36,40 @@ def Feld_abrufen():
         print(Fore.GREEN + ' -', end='')
     print(' ')
 
+def Eingabe():
+    eingabe = input('Geben sie das gewünschte feld ein (Format: A1)')
+    eingabe = list(eingabe)
+    eingabe[0] = 'ABCDE'.index(eingabe[0])
+    eingabe[1] = int(eingabe[1])
+    eingabe[1] = eingabe[1] - 1
+    print(eingabe)
+         
+    def flood_fill(x ,y, old, new): 
+        print(x,y,old,new)
+        if x < 0 or x >= len(board[0]) or y < 0 or y >= len(board):         
+            return
+        if board[x][y] != old:
+            return
+        Feld_abrufen()
+        board[x][y] = new
+        flood_fill(x+1, y, old, new)
+        flood_fill(x-1, y, old, new)
+        flood_fill(x, y+1, old, new)
+        flood_fill(x, y-1, old, new)
 
-eingabe = input('Geben sie das gewünschte feld ein (Format: A1)')
+    flood_fill(eingabe[0],eingabe[1],board[eingabe[0]][eingabe[1]], ' ')
 
-print (eingabe)
-eingabe = list(eingabe)
-print (eingabe)
-
-eingabe[0] = 'ABCDE'.index(eingabe[0])
-
-eingabe[1] = int(eingabe[1])
-eingabe[1] = eingabe[1] - 1
-
-print (eingabe) 
-
-board[eingabe[0]][eingabe[1]]= ' '
-
-Feld_abrufen()
+customfunc = True
+while customfunc == True :
+    Feld_abrufen()
+    Eingabe()
+    
 
 
 
 
 
+
+    # Quellenangaben: 
+    # https://de.wikipedia.org/wiki/Floodfill
+    # https://python.plainenglish.io/a-python-example-of-the-flood-fill-algorithm-bced7f96f569    

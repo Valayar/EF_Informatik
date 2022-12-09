@@ -1,5 +1,5 @@
 
-# Top down entwurf Numtrip
+# Top down entwurf NumTrip
 
 
 **Das Game besteht im grossen und ganzen aus einem Spielfeld, in welchen die Zahlenwerte generiert, dargestellt und verändert werden.** 

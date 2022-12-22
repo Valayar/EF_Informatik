@@ -29,3 +29,13 @@ def fill4(x, y, alteFarbe, neueFarbe):
             stack.push(x + 1, y)
             stack.push(x - 1, y)
 ```
+
+Der obere ist ganz allgemein, der andere ist primär für Phyton. 
+
+Ich habe mir noch ein noch ein Praxisbeispiel zum Floodfill-Algorythmus angeschaut. 
+Durch dieses habe ich die Anwendung besser verstehen können. 
+
+Quellenangaben:  
+[Wikipediaeintrag Floodfill](https://de.wikipedia.org/wiki/Floodfill)  
+[A Python Example of the Flood Fill Algorithm
+](https://python.plainenglish.io/a-python-example-of-the-flood-fill-algorithm-bced7f96f569)

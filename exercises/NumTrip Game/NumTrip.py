@@ -2,7 +2,14 @@ from colorama import init
 init()
 init(autoreset=True)
 from colorama import Fore, Back
+
+import random
+random.seed(2)
+
+numbers = [1, 2, 4, 8]
 Letter_List = ['A','B','C','D','E']
+Input_Checked = []
+
 board = [
     [2, 4, 1, 8, 8],
     [4, 2, 8, 2, 1],
@@ -10,15 +17,13 @@ board = [
     [2, 8, 1, 4, 1],
     [2, 4, 4, 4, 4]
 ]
+
 def Feld_abrufen():
     line_counter = 0
     print( ' ',  end='' )
     for i in range(len(board[0])):
         print( '', i+1, end='' )           
     print(' ')     
-
-
-
     for line in board:
         
         print(' ', end='')
@@ -36,11 +41,10 @@ def Feld_abrufen():
         print(Fore.GREEN + ' -', end='')
     print(' ')
 
-
 def Input_check():
         Input_viable = False 
         while Input_viable == False:
-            Input = input('Geben sie das gewünschte feld ein (Format: A1 , a1)')
+            Input = input('-------------------------------\nGeben sie das gewünschte feld ein (Format: A1 , a1)\n-------------------------------\n')
             Input = list(Input)
             
             if len(Input) > 2:
@@ -63,18 +67,13 @@ def Input_check():
                     print('Zweite Ziffer ≠ 1, 2, 3, 4, 5  ')
             else:
                 print('Erste Ziffer ≠ A,a,B,b,C,c,D,d,E,e  ')
-       
-
-
-
-Input_Checked = []
+    
 def User_Input():
     Input_check()
-    
+
     Input_Checked[0] = 'ABCDE'.index(Input_Checked[0])
     Input_Checked[1] = int(Input_Checked[1])
     Input_Checked[1] = Input_Checked[1] - 1
-
 
     oldfieldvalue = board[Input_Checked[0]][Input_Checked[1]]
          
@@ -91,18 +90,14 @@ def User_Input():
 
     flood_fill(Input_Checked[0],Input_Checked[1],board[Input_Checked[0]][Input_Checked[1]], ' ')
     
-    board[Input_Checked[0]][Input_Checked[1]] = oldfieldvalue * 2
-
-
-
-import random
-random.seed(2)
-numbers = [1, 2, 4, 8]
-print(random.choice(numbers))
-
+    
+    board[Input_Checked[0]][Input_Checked[1]] = oldfieldvalue * 2       # Prüft ob 1024 erreicht wurde -> Spiel gewonnen
+    if oldfieldvalue * 2 == 1024:
+        Feld_abrufen()
+        game_won() 
 
 def fieldrearrange():
-    for i in range(5):
+    for i in range(7):
         for x in board:
             for y in x :
                 if y == ' ' :
@@ -114,15 +109,45 @@ def fieldrearrange():
                         board[board.index(x) - 1][x.index(y)] = ' '
                         board[board.index(x)][x.index(y)] = save
                         save = []
-                    
+                
+def game_lost():
+    return
 
-        
+def reset():
+    global board
+    board = [
+    [' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' '],
+    [' ', ' ', ' ', ' ', ' ']
+]
 
-customfunc = True
-while customfunc == True :
+def game_won():
+    print('-------------------------------\nDu hast gewonnen!\n-------------------------------\n ')
+    input_check_replay = 'False'
+    replay = input('-------------------------------\nMöchtest du nochmal Spielen? (Ja / Nein)\n-------------------------------\n')
+    while input_check_replay != 'True' :
+        if replay.strip() in ['ja', 'Ja']:
+            input_check_replay = 'True'
+            reset()
+            return
+        if replay.strip() in ['nein', 'Nein']:
+            input_check_replay = 'True'
+            global game_start
+            game_start = 'True' 
+        else:    
+            replay = input('-------------------------------\nMöchtest du nochmal Spielen? (Ja / Nein)\n-------------------------------\n')
+
+game_start  = 'False'
+while game_start != 'True' :
     Feld_abrufen()
     User_Input()
     fieldrearrange()
+
+    
+    
+
     
     
     

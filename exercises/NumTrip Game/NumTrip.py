@@ -9,6 +9,7 @@ random.seed(2)
 numbers = [1, 2, 4, 8]
 Letter_List = ['A','B','C','D','E']
 Input_Checked = []
+count = 0
 
 board = [
     [2, 4, 1, 8, 8],
@@ -18,7 +19,7 @@ board = [
     [2, 4, 4, 4, 4]
 ]
 
-def Feld_abrufen():
+def print_field():
     line_counter = 0
     print( ' ',  end='' )
     for i in range(len(board[0])):
@@ -44,7 +45,7 @@ def Feld_abrufen():
 def Input_check():
         Input_viable = False 
         while Input_viable == False:
-            Input = input('-------------------------------\nGeben sie das gewünschte feld ein (Format: A1 , a1)\n-------------------------------\n')
+            Input = input('---------------------------------------------------\nGeben sie das gewünschte feld ein (Format: A1 , a1)\n---------------------------------------------------\n')
             Input = list(Input)
             
             if len(Input) > 2:
@@ -71,9 +72,10 @@ def Input_check():
 def User_Input():
     Input_check()
 
-    Input_Checked[0] = 'ABCDE'.index(Input_Checked[0])
+    Input_Checked[0] = 'ABCDE'.index(Input_Checked[0])              #bearbeitet die liste mit dem Input so damit sie in "board" verwendet werden kann
     Input_Checked[1] = int(Input_Checked[1])
     Input_Checked[1] = Input_Checked[1] - 1
+
 
     oldfieldvalue = board[Input_Checked[0]][Input_Checked[1]]
          
@@ -93,7 +95,7 @@ def User_Input():
     
     board[Input_Checked[0]][Input_Checked[1]] = oldfieldvalue * 2       # Prüft ob 1024 erreicht wurde -> Spiel gewonnen
     if oldfieldvalue * 2 == 1024:
-        Feld_abrufen()
+        print_field()
         game_won() 
 
 def fieldrearrange():
@@ -122,11 +124,13 @@ def reset():
     [' ', ' ', ' ', ' ', ' '],
     [' ', ' ', ' ', ' ', ' ']
 ]
+    global count
+    count = 0
 
 def game_won():
-    print('-------------------------------\nDu hast gewonnen!\n-------------------------------\n ')
+    print('---------------------------------------------------\nDu hast in ', count, 'Zügen gewonnen!\n---------------------------------------------------\n ')
     input_check_replay = 'False'
-    replay = input('-------------------------------\nMöchtest du nochmal Spielen? (Ja / Nein)\n-------------------------------\n')
+    replay = input('---------------------------------------------------\nMöchtest du nochmal Spielen? (Ja / Nein)\n---------------------------------------------------\n')
     while input_check_replay != 'True' :
         if replay.strip() in ['ja', 'Ja']:
             input_check_replay = 'True'
@@ -137,11 +141,72 @@ def game_won():
             global game_start
             game_start = 'True' 
         else:    
-            replay = input('-------------------------------\nMöchtest du nochmal Spielen? (Ja / Nein)\n-------------------------------\n')
+            replay = input('---------------------------------------------------\nMöchtest du nochmal Spielen? (Ja / Nein)\n---------------------------------------------------\n')
+
+
+    target_field = board[Input_Checked[0]][Input_Checked[1]]
+    print(target_field)
+    
+    
+    def flood_fill(x ,y): 
+        if  x < 0 or x >= len(board[0]) or y < 0 or y >= len(board):         
+            if target_field == board[x][y]:
+                print('ok')
+        else:
+            print('not ok')
+            
+    
+
+    flood_fill(Input_Checked[0+1],Input_Checked[1])
+    flood_fill(Input_Checked[0-1],Input_Checked[1])
+    flood_fill(Input_Checked[0],Input_Checked[1+1])
+    flood_fill(Input_Checked[0],Input_Checked[1-1])
+
+
+    
+    global not_game_over
+    a=0
+    for y in range(5):
+        for x in range(5):
+            z=0
+            if x!=4:
+                if board[x+1][y]!=board[x][y]:
+                    z=z+1
+            else:
+                z=z+1
+            if x!=0:
+                if board[x-1][y]!=board[x][y]:
+                    z=z+1
+            else:
+                z=z+1
+            if y!=4:
+                if board[x][y+1]!=board[x][y]:
+                    z=z+1
+            else:
+                z=z+1
+            if y!=0:
+                if board[x][y-1]!=board[x][y]:
+                    z=z+1
+            else:
+                z=z+1
+            if z==4:
+                a=a+1
+    if a==25:
+        print (f'Sie haben in {o} Zügen veloren!')
+        not_game_over=False
+        Wiederspielen("Wollen Sie noch einmal spielen (ja oder nein)?")
+
+def counter():
+    global count
+    count = count + 1
+    print('---------------------------------------------------\nZug ' , count)
+  
+
 
 game_start  = 'False'
 while game_start != 'True' :
-    Feld_abrufen()
+    print_field()
+    counter()
     User_Input()
     fieldrearrange()
 

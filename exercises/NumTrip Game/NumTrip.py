@@ -19,7 +19,7 @@ board = [
     [2, 4, 4, 4, 4]
 ]
 
-def print_field():
+def print_field(): #printet die 2D Liste 'board' 
     line_counter = 0
     print( ' ',  end='' )
     for i in range(len(board[0])):
@@ -42,10 +42,12 @@ def print_field():
         print(Fore.GREEN + ' -', end='')
     print(' ')
 
-def Input_check():
+def Input_check(): #fragt die person nach Input, prüft diesen auf korrektheit
         Input_viable = False 
         while Input_viable == False:
             Input = input('-'*50 +'\nGeben sie das gewünschte feld ein (Format: A1 , a1)\n '+'-'*50 + '\n')
+            Input = Input.strip()
+            Input = Input.lower
             Input = list(Input)
             
             if len(Input) > 2:
@@ -56,24 +58,25 @@ def Input_check():
                 continue
             if Input[0] in 'abcde':
                 Input[0] = 'abcde'.index(Input[0])
-                Input[0] = Letter_List[Input[0]]
-            if Input[0] in 'ABCDE':
+                
+            
                 if Input[1] in '12345':
                     global Input_Checked
                     Input_Checked = Input
                     Input_viable = True
+                    return Input_Checked
                 
                 else:
                     print('Zweite Ziffer ≠ 1, 2, 3, 4, 5  ')
             else:
                 print('Erste Ziffer ≠ A,a,B,b,C,c,D,d,E,e  ')
     
-def User_Input():
+def User_Input(): #sucht nach machbaren Zug, floodfill setzt Felder mit gleichem Wert auf ' ', verdoppelt ausgewählter Wert des Feldes 
     global move_ok
     move_ok = False
-    while move_ok == False:                                             #prüft ob das Feld einen Nachbarn hat 
-        Input_check()
-        Input_Checked[0] = 'ABCDE'.index(Input_Checked[0])              #bearbeitet die liste mit dem Input so damit sie in "board" verwendet werden kann
+    while not move_ok:                                    #prüft ob das Feld einen Nachbarn hat 
+        Input_Checked = Input_check()
+        Input_Checked[0] = 'abcde'.index(Input_Checked[0])              #bearbeitet die liste mit dem Input so damit sie in "board" verwendet werden kann
         Input_Checked[1] = int(Input_Checked[1])
         Input_Checked[1] = Input_Checked[1] - 1
         move_not_possible()
@@ -98,9 +101,9 @@ def User_Input():
     board[Input_Checked[0]][Input_Checked[1]] = oldfieldvalue * 2       # Prüft ob 1024 erreicht wurde -> Spiel gewonnen
     if oldfieldvalue * 2 == 64:
         print_field()
-        game_won() 
+        game_won('-'*50 +'\nDu hast in ', count, 'Zügen gewonnen!\n' + '-'*50 ) 
 
-def fieldrearrange():
+def fieldrearrange(): #ersetzt Felder mit dem Wert ' ' mit dem Wert des obersten Feldes, oberstes Feld 
     for i in range(7):
         for x in board:
             for y in x :
@@ -114,7 +117,7 @@ def fieldrearrange():
                         board[board.index(x)][x.index(y)] = save
                         save = []
                 
-def move_not_possible():
+def move_not_possible(): #überprüft ob ausgewähltes feld ein Nachbarfeld mit gleichem Wert hat
     x = Input_Checked[0]
     y = Input_Checked[1]
     global move_ok
@@ -143,7 +146,7 @@ def move_not_possible():
         print('-'*50,'\nDieser Zug ist nicht Möglich')
         move_ok = False         
 
-def reset():
+def reset(): #ersetzt alle Zahlen auf dem Feld mit einem leeren Wert 
     global board
     board = [
     [' ', ' ', ' ', ' ', ' '],
@@ -155,8 +158,8 @@ def reset():
     global count
     count = 0
 
-def game_won():
-    print('-'*50 +'\nDu hast in ', count, 'Zügen gewonnen!\n' + '-'*50 )
+def game_won(frage): #gibt aus ob das Spiel gewonnen wurde + replay
+    print(frage)
     input_check_replay = 'False'
     replay = input('Möchtest du nochmal Spielen? (Ja / Nein)\n' + '-'*50 +'\n')
     while input_check_replay != 'True' :
@@ -171,9 +174,9 @@ def game_won():
         else:    
             replay = input('-'*50 +'\nMöchtest du nochmal Spielen? (Ja / Nein)' + '-'*50 +'\n')
 
-def loose():
+def loose(): #prüft ob das Spiel verloren wurde, und gibt einsprechenden output + replay 
     global game_start
-    a=0
+    no_neighbour_count=0
     for y in range(5):
         for x in range(5):
             z=0
@@ -198,8 +201,8 @@ def loose():
             else:
                 z=z+1
             if z==4:
-                a=a+1
-    if a==25:
+                no_neighbour_count=no_neighbour_count+1
+    if no_neighbour_count==25:
         print ('Sie haben in', count ,'Zügen veloren!')
         input_check_replay = 'False'
         replay = input('---------------------------------------------------\nMöchtest du nochmal Spielen? (Ja / Nein)\n---------------------------------------------------')
@@ -216,7 +219,7 @@ def loose():
             else:    
                 replay = input('---------------------------------------------------\nMöchtest du nochmal Spielen? (Ja / Nein)\n---------------------------------------------------')
             
-def counter():
+def counter(): #zählt die gemachten Züge 
     global count
     count = count + 1
     print('-'*50 + '\nZug ' , count)

@@ -30,6 +30,7 @@ Teilt dem Server die Aktion mit, welche Ausgeführt werden soll.
 
 Beinhaltet meta Informationen, welche für den Server relevant sind. 
 Zum Beispiel Von welchen gerät die Anfrgae gesndet wird, die Uhrzeit der Anfrage.
+Im Header wird auch erklärt welche Aktion durchgeführt werden soll.(Get/Post/Put/Delete)
 
 **Sie spezifizieren auch die Inhalte des Bodys**
 
@@ -88,3 +89,11 @@ Dabei Unterscheidet man zwischen Polling und und Long Polling. Des unterschied d
 
 
 ## Endpunkte 
+
+
+Endpunkte einer URL sind die andweisungen an eine API, und teilen der API mit was diese zu tun hat.
+Hier im Beispiel ist */24ef/Netzwerke/Protokolle* der Endpunkt.
+
+http://ofi.gbsl.website
+
+https://ofi.gbsl.website/24ef/Netzwerke/Protokolle

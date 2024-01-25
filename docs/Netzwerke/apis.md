@@ -8,16 +8,16 @@ Eine API verarbeitet daten von Webseiten um sie auf einem Computer(Server zu spe
 
 Die API ist der "verteckte" Teil einer Webseite welche für das Prozessieren vom Computer gedacht ist. Wenn wir 
 
-## **HTTP Request,** HTTP Abfrage
+## HTTP Request, HTTP Abfrage
 
-![image](/images/HTTP_Request_Bild.jpeg)
+![image](images/HTTP_Request_Bild.jpeg)
 *Inhalt der HTTP-Request*
-### **URL,** Uniform Resource Locator
+### URL, Uniform Resource Locator
 Wenn Sie eine Webadresse wie zu Beispiel http://example.com in einen Webbrowser eingeben, teilt das "http" dem Browser mit, dass er die HTTP-Regeln für die Kommunikation mit dem Server verwenden soll.
 
 Adresse des Servers, mit welchem kommuniziert werden soll. 
 
-### **Methoden**
+### Methoden
 
 Teilt dem Server die Aktion mit, welche Ausgeführt werden soll. 
 
@@ -26,7 +26,7 @@ Teilt dem Server die Aktion mit, welche Ausgeführt werden soll.
 **PUT** - Fordert den Server auf, eine vorhandene Ressource zu bearbeiten/zu aktualisieren  
 **DELETE** - Fordert den Server auf, eine Ressource zu löschen
 
-### **Headers**
+### Headers
 
 Beinhaltet meta Informationen, welche für den Server relevant sind. 
 Zum Beispiel Von welchen gerät die Anfrgae gesndet wird, die Uhrzeit der Anfrage.
@@ -34,7 +34,7 @@ Im Header wird auch erklärt welche Aktion durchgeführt werden soll.(Get/Post/P
 
 **Sie spezifizieren auch die Inhalte des Bodys**
 
-### **Body**
+### Body
 
 Beinhaltet die Daten welche du an den Server sendest. Diese können unter anderem Bilder sein, welche du auf Instagramm hochlädst.
 
@@ -46,10 +46,10 @@ Statuscodes sind dreistellige Zahlen, die jeweils eine eindeutige Bedeutung habe
 
 Diese haben je nach Zahl verschiedene Bedeutungen und werden mit der HTTP-Response (HTTP Antwort) mitgeteilt. 
 
-![image](/images/HTTP_Response_Bild.jpeg)
+![image](images/HTTP_Response_Bild.jpeg)
 *Inhalt der HTTP-Response*
 
-![image](/images/HTTP_Status_Bild.png)
+![image](./images/HTTP_Status_Bild.png)
 *Beispiele für verschiedene Statuscodes*
 
 ## JSON Format
@@ -59,7 +59,7 @@ JSON ist einen textbasierte Methode zur Darstellung von JavaScript-Objektliteral
 
 JSON ist ein sehr einfaches Format, das aus zwei Teilen besteht: Schlüssel und Werte. Die Schlüssel stellen ein Attribut des beschriebenen Objekts dar.
 
-![image](/images/JSON_example.png.jpeg)
+![image](images/JSON_example.png.jpeg)
 *Beispiel für JSON Code*
 ## XML Format
 **XML (Extensible Markup Language)**
@@ -68,25 +68,25 @@ XML ist ein einfaches textbasiertes Format zur Darstellung strukturierter Inform
 
 XML ist ähnlich wie JSON, aber jedes Element in der Liste wird von einem Knoten umschlossen. Deshalb benötigt das XML-Format auch viel mehr Text zur Kommunikation als JSON.
 
-![image](/images/XML_example.png.jpeg)
+![image](images/XML_example.png.jpeg)
 *Beispiel für XML Code*
 
 ## Polling
  
 
-Wenn der Client der Einzige ist, der Anfragen stellen kann, besteht die einfachste Lösung, um den Server auf dem neuesten Stand zu halten, darin, dass der Client den Server wiederholt nach Aktualisierungen fragt. Dies kann durch getimtes, (z.B. mit einer Minute verzögerung) Anfordern der gleichen Ressource erreicht werden. Diese Technik ist als Polling bekannt.
+Wenn der Client der Einzige ist, der Anfragen stellen kann, besteht die einfachste Lösung, um den Server auf dem neuesten Stand zu halten, darin, dass der Client den Server wiederholt nach Aktualisierungen fragt. Dies kann durch getimtes, (z.B. mit einer Minute verzögerung) Anfordern der gleichen Ressource erreicht werden. Diese Technik ist als Polling bekannt. [^1]
 
 **Polling/Long Polling**  
 Dabei Unterscheidet man zwischen Polling und und Long Polling. Des unterschied der beiden leigt darin, dass beim Polling der server sofort eine Antwort gibt, und beim Long Polling der Server mit der Antwort wartet, bis sich die abzufragende ressource verändert hat. 
 
 
 
-![image](/images/Polling.png)
+![image](images/Polling.png)
 *Beispiel für Polling*
 
-![image](/images/Long_Polling.png)
+![image](images/Long_Polling.png)
 *Beispiel für Long Polling*
-
+3
 
 ## Endpunkte 
 
@@ -94,6 +94,6 @@ Dabei Unterscheidet man zwischen Polling und und Long Polling. Des unterschied d
 Endpunkte einer URL sind die andweisungen an eine API, und teilen der API mit was diese zu tun hat.
 Hier im Beispiel ist */24ef/Netzwerke/Protokolle* der Endpunkt.
 
-http://ofi.gbsl.website
+[^1]: Quelle: http://ofi.gbsl.website
 
 https://ofi.gbsl.website/24ef/Netzwerke/Protokolle

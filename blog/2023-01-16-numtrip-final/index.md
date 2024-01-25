@@ -8,11 +8,11 @@ Damit du das Spiel auch spielen kannst, benötigst du eine Phyton Konsole, auf w
 
 
 ## Neuer Top Down Entwurf:
-**Top Down Entwurf vor dem programmieren:**
+### Top Down Entwurf vor dem programmieren:
 ![Image](images/Top_Down_Entwurf.jpg)
-**Top Down Entwurf nach dem programmieren:**
+### Top Down Entwurf nach dem programmieren:
 ![Image](images/Top_Down_simple.png)
-**Hier eine Beschiebene Version:**
+### Hier eine Beschiebene Version:
 ![Image](images/Top_down_detail.png)
 
 # Algorythmisches Konzept: 

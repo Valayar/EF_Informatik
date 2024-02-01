@@ -2,24 +2,6 @@ from timeit import timeit
 from random import shuffle
 from copy import deepcopy
 
-def bogo_sort(a):
-    print(a)
-    while True:
-        shuffle(a)
-        is_sorted = True
-        for i in range(len(a)-1):
-            if a[i] > a[i+1]:
-                is_sorted = False
-                break
-        if is_sorted:
-            return a
-
-to_sort = list(range(6))
-shuffle(to_sort)
-
-execution_time = timeit(lambda: bogo_sort(deepcopy(to_sort)), number=100)
-print('Zeit für 100x Sortieren:', execution_time)
-
 def merge(lower, upper):
     sorted = []
     while len(lower) > 0 and len(upper) > 0:
@@ -46,6 +28,11 @@ def merge_sort(data):
         right = merge_sort(right)
         return merge(left, right)
 
-to_sort = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-print('Unsortiert:', to_sort)
-print('Sortiert:  ', merge_sort(to_sort))
+N = 10000
+WDH = 5
+
+to_sort = list(range(N))
+shuffle(to_sort)
+
+execution_time = timeit(lambda: merge_sort(deepcopy(to_sort)), number=WDH)
+print('Zeit für',WDH, 'Sortieren:', execution_time/WDH)
